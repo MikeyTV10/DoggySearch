@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoggySearch</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(to bottom, #00008B, #00FFFF); /* Dark blue to cyan gradient */
+            text-align: center;
+            color: white;
+        }
+        .title {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .search-container {
+            position: relative;
+            padding: 3px;
+            border-radius: 30px;
+            background: linear-gradient(90deg, #00008B, #00FFFF);
+        }
+        #search-input {
+            width: 400px;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 27px;
+            outline: none;
+            background: white;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        #search-input::placeholder {
+            color: #666;
+        }
+        #search-input:focus {
+            width: 450px;
+        }
+    </style>
+</head>
+<body>
+    <div class="title">DoggySearch</div>
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search DoggySearch with DuckDuckGo">
+    </div>
+
+    <script>
+        document.getElementById('search-input').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value;
+                const searchUrl = `https://duckduckgo.com/?q=${encodeURIComponent(query)}`;
+                window.location.href = searchUrl; // Redirect to the search URL in the same tab
+            }
+        });
+    </script>
+</body>
+</html>
